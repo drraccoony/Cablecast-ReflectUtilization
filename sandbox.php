@@ -1,12 +1,14 @@
 <?php
   require 'aws_sdk/aws-autoloader.php';
-  //Create a S3Client
-  $s3 = new Aws\S3\S3Client([
-    'version' => 'latest',
-    'region' => 'us-east-2'
+  use Aws\DynamoDb\DynamoDbClient;
+
+  // Instantiate a client with credentials
+  $client = new DynamoDbClient([
+      'profile' => 'default',
+      'region'  => 'us-east-1',
+      'version' => 'latest'
   ]);
 ?>
 
-<p>Hello</p>
-
-<?php echo $s3 ?>
+<h1>Header</h1>
+<p>Should test to ensure the credentials are actually working.</p>
