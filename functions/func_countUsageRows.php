@@ -1,7 +1,8 @@
 <?php
-  $sql = "SELECT count(*) as total from Customers";
+  $sql = "SELECT count(*) as total from customer_usage";
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) {
-    $totalcustomerrows = $row['total'];
-}
+    $totalusagerows = $row['total'];
+  }
+    unset($sql, $result, $row);
 ?>

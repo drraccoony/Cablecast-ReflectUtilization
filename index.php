@@ -7,7 +7,6 @@
   <?php include('includes/head.php'); ?>
   <?php include('includes/navbar.php'); ?>
   <?php require_once  'functions/db_connect.php'; ?>
-  <?php include('functions/func_countCustomerRows.php'); ?>
   <body>
     <div class="container">
       <h1>Dashboard Overview</h1>
@@ -37,13 +36,20 @@
               <td></td>
             </tr>
           </table>
+          <small>Dig deeper: <a href="#">Yesterdays breakdown</a> | <a href="#">All reports</a> | <a href="#">Highest Previous Usage</a></small>
         </div>
         <div class="col-md-6">
-          <h2>Quick Stats</h4>
+          <?php include('functions/func_countCustomerRows.php'); ?>
+          <?php include('functions/func_countUsageRows.php'); ?>
+          <h2>Quick Stats</h2>
           <table class="table table-striped">
             <tr>
-              <td>Total Customers</td>
+              <td>Total Customers in DB</td>
               <td><?php echo $totalcustomerrows ?></td>
+            </tr>
+            <tr>
+              <td>Total Usage Entries in DB</td>
+              <td><?php echo $totalusagerows ?></td>
             </tr>
             <tr>
               <td>Lifetime Cost</td>
