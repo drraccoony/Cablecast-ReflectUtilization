@@ -14,8 +14,8 @@ Running AWS CLI command ```aws ce get-cost-and-usage --time-period Start=2020-05
 - [x] Create project & setup AWS PHP SDK
 - [x] Setup credendial storage for AWS SDK
 - [x] Use proper function to pull costUsage
-- [ ] Write costUsage json to database
-- [ ] Setup `get_usage.php` to a 4am CRON job
+- [x] Write costUsage json to database
+   - [ ] Setup `get_usage.php` to a 4am CRON job
 - [ ] Link usage Records to Customer table
 - [ ] Generate reports per spec
 - [ ] Generate email alerts per spec
