@@ -20,7 +20,7 @@ $startdate = date("Y-m-j", strtotime( '-2 days' ));
 $enddate = date("Y-m-j", strtotime( '-1 days' ));
 
 /* Lets use the getCostAndUsage function from the library */
-$jsondata = $client->getCostAndUsage([
+$data = $client->getCostAndUsage([
     'TimePeriod' => [
         'End' => $enddate,
         'Start' => $startdate,
@@ -37,24 +37,34 @@ $endtime = microtime(true);
 /* Show time to run script for informational purposes. */
 printf("Reflect usage pulled from AWS in %f seconds", $endtime - $starttime );
 
-$formatted_data = json_decode($jsondata, true);
-/*
-I think this is wrong... commenting it out.
-$customer_key = $formatted_data['ResultsByTime']['Groups']['Keys'];
-$customer_cost = $formatted_data['ResultsByTime']['Groups']['Metrics']['BlendedCost'];*/
+//Check if data is existing
+if(isset($data['ResultsByTime'][0]['Groups'])){
+  //Loop through each item
+  foreach ($data['ResultsByTime'][0]['Groups'] as $key => $value) {
 
-//print_r($customer_key);
+    //Check if the netsuiteID exists, and is not blank
+    if(isset($value['Keys'])){
+      $customer_id = substr($value['Keys'][0], 11);
 
-/*foreach ($formatted_data as $row) {
-    //$customer_key = $formatted_data['ResultsByTime']['Groups']['Keys']
-    //$customer_cost = $formatted_data['ResultsByTime']['Groups']['Metrics']['BlendedCost']
-    $sql = "INSERT INTO `customer_usage` (CityCode, Name) VALUES ('" . $row["customer_cost"] . "', '" . $row["Name"] . "')";
-    $conn->query($sql);
-}*/
+      //If no id exists, loop past it.
+      if($customer_id == ""){
+        continue;
+      }
 
+      echo $customer_id.":";
+    }
 
+    //Check if cost exists
+    if(isset($value['Metrics']['BlendedCost']['Amount'])){
+      $cost = $value['Metrics']['BlendedCost']['Amount'];
+      echo $cost."<br/>";
+    }
 
-/*$sql = "INSERT INTO `customer_usage` (`id`, `customerID`, `date`, `data_use`, `cost`) VALUES (NULL, '10', CURRENT_DATE(), '10', '10')";
-$conn->query($sql);*/
-
+    //Check the values are populated, if so, add them to the db
+    if($cost && $customer_id){
+      $sql = "INSERT INTO `customer_usage` (`customerID`, `date`, `cost`) VALUES ('" . $customer_id . "', CURRENT_DATE() , '" . $cost . "')";
+      $conn->query($sql);
+    }
+  }
+}
 ?>
