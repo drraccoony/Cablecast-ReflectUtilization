@@ -56,6 +56,10 @@
               <td></td>
             </tr>
           </table>
+          <h2>Manual Function Runs</h2>
+          <ul>
+            <li><a href="functions/func_get_usage.php" class="text-danger">Manually pull yesterdays usage into DB</a></li>
+          </ul>
         </div>
       </div>
 
