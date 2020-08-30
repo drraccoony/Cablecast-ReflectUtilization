@@ -1,4 +1,4 @@
-# Cablecast-ReflectUlitization
+# Cablecast-ReflectUtilization
 Internal backend for ultiization reports, alerts and interface for Cablecast Reflect Customers.
 
 For this, I am using PHP alongside the AWS PHP SDK w/ "home directory" [Credential Profile](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials_profiles.html) & MySQL for housing data locally for histroical reporting.
