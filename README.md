@@ -7,7 +7,8 @@ For this, I am using the PHP SDK "home directory" Credential Profiles (https://d
 Running AWS CLI command ```aws ce get-cost-and-usage --time-period Start=2020-05-01,End=2020-06-01 --granularity MONTHLY --metrics "BlendedCost" --group-by Type=TAG,Key=NetsuiteID``` returns all customers with the "NetsuiteID" tag.
 
 ## Installing / Getting started
-Clone repo to a php enabled webserver of your choice with MySQL.
+* Clone repo to a php enabled webserver of your choice with MySQL.
+* test
 
 ## Configuration
 TBD
