@@ -7,7 +7,18 @@ For this, I am using the PHP SDK "home directory" Credential Profiles (https://d
 Running AWS CLI command ```aws ce get-cost-and-usage --time-period Start=2020-05-01,End=2020-06-01 --granularity MONTHLY --metrics "BlendedCost" --group-by Type=TAG,Key=NetsuiteID``` returns all customers with the "NetsuiteID" tag.
 
 ## Installing / Getting started
-Clone repo to a php enabled webserver of your choice with MySQL.
+* Clone repo to a php enabled webserver of your choice with MySQL.
+* test
+
+# Tasks / Objectives
+- [x] Create project & setup AWS PHP SDK
+- [x] Setup credendial storage for AWS SDK
+- [x] Use proper function to pull costUsage
+- [ ] Write costUsage json to database
+- [ ] Setup `get_usage.php` to a 4am CRON job
+- [ ] Link usage Records to Customer table
+- [ ] Generate reports per spec
+- [ ] Generate email alerts per spec
 
 ## Configuration
 TBD
