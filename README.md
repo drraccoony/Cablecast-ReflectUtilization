@@ -24,6 +24,7 @@ $data = $client->getCostAndUsage([
     ]
   ]);
   ```
+  More information on the syntax and parameters [here](https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-ce-2017-10-25.html#getcostandusage).
   
 ## Installing / Getting started
 Can't imagine this'll be useful for anyone outside our org. But just incase:
