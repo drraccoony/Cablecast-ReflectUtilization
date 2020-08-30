@@ -42,9 +42,6 @@ Can't imagine this'll be useful for anyone outside our org. But just incase:
 - [ ] Generate reports
 - [ ] Generate email alerts
 
-## Configuration
-TBD
-
 ## Links
 * AWS for PHP SDK Version 3 https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html
 * XAMPP https://www.apachefriends.org/
