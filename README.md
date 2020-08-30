@@ -6,6 +6,8 @@ For this, I am using the PHP SDK "home directory" Credential Profiles (https://d
 ## Getting the data
 Running AWS CLI command ```aws ce get-cost-and-usage --time-period Start=2020-05-01,End=2020-06-01 --granularity MONTHLY --metrics "BlendedCost" --group-by Type=TAG,Key=NetsuiteID``` returns all customers with the "NetsuiteID" tag. This can be adapted to the PHP SDK for AWS by running:
 ```php
+$startdate = date("Y-m-j", strtotime( '-2 days' ));
+$enddate = date("Y-m-j", strtotime( '-1 days' ));
 $data = $client->getCostAndUsage([
     'TimePeriod' => [
         'End' => $enddate,
