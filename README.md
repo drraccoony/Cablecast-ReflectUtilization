@@ -7,7 +7,11 @@ For this, I am using the PHP SDK "home directory" Credential Profiles (https://d
 Running AWS CLI command ```aws ce get-cost-and-usage --time-period Start=2020-05-01,End=2020-06-01 --granularity MONTHLY --metrics "BlendedCost" --group-by Type=TAG,Key=NetsuiteID``` returns all customers with the "NetsuiteID" tag.
 
 ## Installing / Getting started
-* Clone repo to a php enabled webserver of your choice with MySQL
+1. Clone repo to a php enabled webserver of your choice with MySQL
+2. Create database called `reflect_usage` and import `customer_usage.sql`
+3. Rename `db_connect.php.default` to `db_connect.php`
+4. Define db username and password in `db_connect.php`
+5. Setup [AWS Credentials](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials_profiles.html).
 
 # Tasks / Objectives
 - [x] Create project & setup AWS PHP SDK
