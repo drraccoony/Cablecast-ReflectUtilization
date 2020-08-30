@@ -1,6 +1,7 @@
 <?php
   require 'aws_sdk/aws-autoloader.php';
   use Aws\CostExplorer\CostExplorerClient;
+  require_once  'db_connect.php';
 
   // Instantiate a client with credentials
   $client = new CostExplorerClient([
@@ -19,7 +20,7 @@ $startdate = date("Y-m-j", strtotime( '-2 days' ));
 $enddate = date("Y-m-j", strtotime( '-1 days' ));
 
 /* Lets use the getCostAndUsage function from the library */
-$result = $client->getCostAndUsage([
+$jsondata = $client->getCostAndUsage([
     'TimePeriod' => [
         'End' => $enddate,
         'Start' => $startdate,
@@ -33,7 +34,27 @@ $result = $client->getCostAndUsage([
     ]
   ]);
 $endtime = microtime(true);
-
 /* Show time to run script for informational purposes. */
-printf("Data pulled from AWS in %f seconds", $endtime - $starttime );
+printf("Reflect usage pulled from AWS in %f seconds", $endtime - $starttime );
+
+$formatted_data = json_decode($jsondata, true);
+/*
+I think this is wrong... commenting it out.
+$customer_key = $formatted_data['ResultsByTime']['Groups']['Keys'];
+$customer_cost = $formatted_data['ResultsByTime']['Groups']['Metrics']['BlendedCost'];*/
+
+//print_r($customer_key);
+
+/*foreach ($formatted_data as $row) {
+    //$customer_key = $formatted_data['ResultsByTime']['Groups']['Keys']
+    //$customer_cost = $formatted_data['ResultsByTime']['Groups']['Metrics']['BlendedCost']
+    $sql = "INSERT INTO `customer_usage` (CityCode, Name) VALUES ('" . $row["customer_cost"] . "', '" . $row["Name"] . "')";
+    $conn->query($sql);
+}*/
+
+
+
+/*$sql = "INSERT INTO `customer_usage` (`id`, `customerID`, `date`, `data_use`, `cost`) VALUES (NULL, '10', CURRENT_DATE(), '10', '10')";
+$conn->query($sql);*/
+
 ?>
