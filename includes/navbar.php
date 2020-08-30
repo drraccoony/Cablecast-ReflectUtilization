@@ -14,9 +14,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li <?php if ($currentPage === 'index') {echo 'class="active"';} ?>><a href="index.php">Dashboard</a></li>
-        <li><a href="#">Reports</a></li>
-        <li><a href="#">Settings</a></li>
+        <li <?php if ($currentPage === 'index') {echo 'class="active"';} ?>><a href="index.php"><i class="fad fa-tachometer-alt-slowest"></i> Dashboard</a></li>
+        <li><a href="#"><i class="fad fa-file-chart-pie"></i> Reports</a></li>
+        <li><a href="#"><i class="fad fa-cogs"></i> Settings</a></li>
         <!--<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">

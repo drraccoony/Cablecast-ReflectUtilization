@@ -14,20 +14,42 @@
 
       <div class="row">
         <div class="col-md-6">
-          <h2>Yesterdays Usage</h4>
+          <h2>Yesterdays Cost</h4>
+          <table class="table table-striped">
+            <tr>
+              <th>Metric</th>
+              <th>Cost (USD)</th>
+            </tr>
+            <tr>
+              <td><i class="fas fa-tag" style="color:Tomato"></i> Untagged</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><i class="far fa-tags"></i> Tagged</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-trophy-alt"></i> Highest</td>
+              <td></td>
+            </tr>
+          </table>
         </div>
         <div class="col-md-6">
           <h2>Quick Stats</h4>
-            <table class="table table-striped">
-              <tr>
-                <td>Total Customers</td>
-                <td><?php echo $totalcustomerrows ?></td>
-              </tr>
-              <tr>
-                <td>Lifetime Cost</td>
-                <td></td>
-              </tr>
-            </table>
+          <table class="table table-striped">
+            <tr>
+              <td>Total Customers</td>
+              <td><?php echo $totalcustomerrows ?></td>
+            </tr>
+            <tr>
+              <td>Lifetime Cost</td>
+              <td></td>
+            </tr>
+          </table>
         </div>
       </div>
 

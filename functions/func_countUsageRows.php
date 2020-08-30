@@ -3,6 +3,5 @@
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) {
     $totalcustomerrows = $row['total'];
-  }
-  unset($sql, $result, $row);
+}
 ?>
