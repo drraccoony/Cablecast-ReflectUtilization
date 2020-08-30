@@ -39,7 +39,7 @@ Can't imagine this'll be useful for anyone outside our org. But just incase:
 - [x] Use proper function to pull costUsage
    - [x] Write costUsage json to database
    - [ ] Setup `get_usage.php` to be a 4am CRON job
-- [ ] Create "Customers" table
+- [x] Create "Customers" table
    - [ ] Tie customers to UsageReports
 - [ ] Generate reports
 - [ ] Generate email alerts
