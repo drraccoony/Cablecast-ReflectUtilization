@@ -27,6 +27,8 @@
   $startdate = date("Y-m-j", strtotime( '-1 days' ));
   $enddate = date("Y-m-j", strtotime( '0 days' ));
 
+  echo "Pulling usage from <kbd>".$startdate."</kbd> until <kbd>".$enddate."</kbd>.<br>";
+
   /* Lets use the getCostAndUsage function from the library */
   $data = $client->getCostAndUsage([
       'TimePeriod' => [
@@ -55,9 +57,9 @@
         $customer_id = substr($value['Keys'][0], 11);
 
         //If no id exists, loop past it.
-        if($customer_id == ""){
+        /*if($customer_id == ""){
           continue;
-        }
+        }*/
 
         echo "CUSTOMER TAG: <kbd>".$customer_id."</kbd>. ";
       }
