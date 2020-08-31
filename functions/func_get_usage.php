@@ -73,7 +73,7 @@
 
       //Check the values are populated, if so, add them to the db
       if($cost && $customer_id){
-        $sql = "INSERT INTO `customer_usage` (`customerID`, `date`, `cost`, `data_use`) VALUES ('" . $customer_id . "', CURRENT_DATE() , '" . $cost . "', '" . $useage . "')";
+        $sql = "INSERT INTO `customer_usage` (`customerID`, `usageDate`, `cost`, `data_use`) VALUES ('" . $customer_id . "','" . $startdate . "', '" . $cost . "', '" . $useage . "')";
         $conn->query($sql);
       }
     }
