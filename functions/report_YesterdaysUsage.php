@@ -2,7 +2,7 @@
 
 <?php $targetdate = date("Y-m-j", strtotime( '-1 days' )); ?>
 <div class="container">
-  <h1>functions\func_getYesterdaysUsage.php</h1>
+  <h1>functions\report_YesterdaysUsage.php</h1>
   <p>Pulls yesterdays usage, sorted by highest cost.</p>
   <p><a href="../index.php">Return to Dashboard</a>.
   <hr>
@@ -23,7 +23,12 @@
       print '</thead>';
       print '<tbody>';
       while($row = $result->fetch_assoc()) {
-        echo "<tr><td>id: " . $row["id"]. "</td><td>???</td><td>$" . $row["cost"]. "</td><td>" . $row["data_use"]. " bytes</td></tr>";
+        //$sql2 = "SELECT * FROM customers WHERE id = $row[id]";
+        //$result2 = $conn->query($sql2);
+        //$row2 = $result2->fetch_assoc();
+
+        //echo "<tr><td>" . $row["id"]. "</td><td>". $row2["Name"]."</td><td>$" . $row["cost"]. "</td><td>" . $row["data_use"]. " bytes</td></tr>";
+        echo "<tr><td>" . $row["id"]. "</td><td></td><td>$" . $row["cost"]. "</td><td>" . $row["data_use"]. " bytes</td></tr>";
       }
       print '</tbody>';
       print '</table>';
