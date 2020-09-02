@@ -8,7 +8,10 @@
   <hr>
   <?php
     require_once  'db_connect.php';
-    $sql = "SELECT * FROM customer_usage WHERE usageDate='$targetdate' ORDER BY `cost` DESC";
+    $sql = "SELECT customer_usage.*, customers.name
+            FROM customer_usage
+            INNER JOIN customers ON customer_usage.customerID = customers.ID
+            WHERE customer_usage.usageDate='$targetdate' ORDER BY customer_usage.cost DESC";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       // output data of each row
@@ -19,16 +22,12 @@
       print    '<th>Customer Name</th>';
       print    '<th>Cost</th>';
       print    '<th>Usage (Bytes)</th>';
+      print    '<th></th>';
       print  '</tr>';
       print '</thead>';
       print '<tbody>';
       while($row = $result->fetch_assoc()) {
-        //$sql2 = "SELECT * FROM customers WHERE id = $row[id]";
-        //$result2 = $conn->query($sql2);
-        //$row2 = $result2->fetch_assoc();
-
-        //echo "<tr><td>" . $row["id"]. "</td><td>". $row2["Name"]."</td><td>$" . $row["cost"]. "</td><td>" . $row["data_use"]. " bytes</td></tr>";
-        echo "<tr><td>" . $row["id"]. "</td><td></td><td>$" . $row["cost"]. "</td><td>" . $row["data_use"]. " bytes</td></tr>";
+        echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"]. "</td><td>$" . $row["cost"]. "</td><td>" . $row["data_use"]. " bytes</td><td>View more</td></tr>";
       }
       print '</tbody>';
       print '</table>';
