@@ -3,7 +3,6 @@
 <?php
   require 'aws_sdk/aws-autoloader.php';
   use Aws\CostExplorer\CostExplorerClient;
-  $debug = true;
   require_once  'db_connect.php';
 
   // Instantiate a client with credentials
@@ -24,8 +23,8 @@
 
   /* I dont want to hard code the dates, so I am going to define them here */
   /* Per the docs: The start date is inclusive, but the end date is exclusive.*/
-  $startdate = date("Y-m-j", strtotime( '-1 days' ));
-  $enddate = date("Y-m-j", strtotime( '0 days' ));
+  $startdate = date("Y-m-d", strtotime( '-1 days' ));
+  $enddate = date("Y-m-d", strtotime( '0 days' ));
 
   echo "Pulling usage from <kbd>".$startdate."</kbd> until <kbd>".$enddate."</kbd>.<br>";
 
