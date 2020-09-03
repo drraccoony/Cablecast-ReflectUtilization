@@ -41,8 +41,8 @@ Can't imagine this'll be useful for anyone outside our org. But just incase:
    - [x] Write costUsage json to database
    - [ ] Setup `get_usage.php` to be a 4am CRON job
 - [x] Create "Customers" table
-   - [ ] Tie customers to UsageReports
-- [ ] Generate reports
+   - [x] Tie customers to UsageReports
+- [x] (Partially) Generate reports
 - [ ] Generate email alerts
 
 ## Links
