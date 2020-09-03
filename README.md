@@ -48,3 +48,5 @@ Can't imagine this'll be useful for anyone outside our org. But just incase:
 ## Links
 * AWS for PHP SDK Version 3 https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html
 * XAMPP https://www.apachefriends.org/
+* Bootstrap CSS 3.4 CDN - https://getbootstrap.com/docs/3.4/css/
+* Font Awesome CDN - https://fontawesome.com/ 
