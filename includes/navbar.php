@@ -15,15 +15,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li <?php if ($currentPage === 'index') {echo 'class="active"';} ?>><a href="index.php"><i class="fad fa-tachometer-alt-slowest"></i> Dashboard</a></li>
+        <li <?php if ($currentPage === '') {echo 'class="active"';} ?>><a href="customers.php"><i class="fad fa-users"></i> Customers</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fad fa-file-chart-pie"></i> Reports<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="functions\report_YesterdaysUsage.php">Yesterday</a></li>
-            <li><a href="#">Past Month</a></li>
+            <li><a href="functions\report_LastMonthUsage.php">Last Month</a></li>
             <li><a href="#">Past Year</a></li>
-            <!--<li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
+            <li><a href="#" disabled="disabled">Custom Report</a></li>
+            <!--<li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>-->
           </ul>
         </li>
